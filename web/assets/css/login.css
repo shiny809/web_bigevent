@@ -8,22 +8,21 @@ body {
   background-size: cover;
 }
 
-.loginAndRegBox {
+.loginAndRegbox{
+  position:absolute;
   width: 400px;
   height: 310px;
   background-color: #fff;
-  position: absolute;
-  left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
-
 .title-box {
   height: 60px;
-  background: url('/assets/images/login_title.png') no-repeat center;
+  background:url('/assets/images/login_title.png') no-repeat center;
 }
 
-.reg-box {
+.reg-box{
   display: none;
 }
 
@@ -33,23 +32,21 @@ body {
 
 .links {
   display: flex;
-  justify-content: flex-end;
+  justify-content:flex-end;
 }
 
 .links a {
   font-size: 12px;
 }
 
-.layui-form-item {
-  position: relative;
+.layui-form-item{
+ position: relative;
 }
-
+.layui-input {
+  padding-left: 32px;
+}
 .layui-icon {
   position: absolute;
   left: 10px;
   top: 10px;
-}
-
-.layui-input {
-  padding-left: 32px;
 }
