@@ -62,9 +62,9 @@ $(function () {
       success:function(res) {
         console.log(res);
        if(res.status !== 0){
-        return layer.msg(res.message,{icon:2})
+        return layer.msg(res.msg,{icon:2})
        }
-        layer.msg(res.message, { icon:1})
+        layer.msg(res.msg, { icon:1})
         // 登陆成功后返回的 Token 存储到本地
         localStorage.setItem('token',res.token)
         // 跳转到后台首页
