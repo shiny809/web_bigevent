@@ -24,7 +24,7 @@ $.ajaxPrefilter(function(options)
 // 全局统一挂载 回调函数
 
     options.complete = function (res) {
-        console.log(res);
+        // console.log(res);
         if (res.responseJSON.status === 1 && res.responseJSON.msg ===
             "身份认证失败") {
             localStorage.removeItem('token')
