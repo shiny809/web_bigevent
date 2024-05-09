@@ -11,7 +11,12 @@ $(function () {
             }
 
             if (res.data.user_pic !== null) {
-                $('#image').attr('src', res.data.user_pic )
+                // $('#image').attr('src', res.data.user_pic )
+                // !!!为裁剪区域 重新设置图片,解决之前不显示的原因！！！
+                $image
+                    .cropper('destroy')
+                    .attr('src', res.data.user_pic)
+                    .cropper(options)
             } 
         }
 

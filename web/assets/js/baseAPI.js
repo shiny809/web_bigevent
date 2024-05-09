@@ -8,6 +8,12 @@
 // 注意：每次调用$.get()或$.post()或$.ajax()的时候
 // 先调用 ajaxPrefilter 这个函数
 // 这个函数里面，可以拿到我们给Ajax提供的配置对象
+
+
+// 由于设置第一个隐藏，所以这里还原显示
+// 不用两个框架，可以不设置
+// window.parent.$('iframe').eq(0).css('display', 'block')
+
 $.ajaxPrefilter(function(options)
 {
     // 发起 Ajax 请求之前，统一拼接请求的根路径

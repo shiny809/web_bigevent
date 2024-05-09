@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章分类</title>
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <link rel="stylesheet" href="/assets/css/article/art_list.css">
+</head>
+
+<body>
+    <div class="layui-card">
+        <div class="layui-card-header">文章列表</div>
+        <div class="layui-card-body">
+            <!-- 筛选区域 -->
+            <form class="layui-form" id='form-search'>
+                <div class="layui-form-item layui-inline">
+                    <div class="layui-input-block">
+                        <select name="cate_id">
+                            <!-- <option value=""></option> -->
+                            <!-- <option value="0">北京</option>-->
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-inline">
+                    <div class="layui-input-block">
+                        <select name="state">
+                            <option value="0">所有状态</option>
+                            <option value="已发布">已发布</option>
+                            <option value="草稿">草稿</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="layui-form-item layui-inline">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                    </div>
+                </div>
+
+            </form>
+            <!-- 列表区域 -->
+            <table class="layui-table">
+                <colgroup>
+                    <col width="400">
+                    <col>
+                    <col width="200">
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <td>文章标题</td>
+                        <td>分类</td>
+                        <td>发表时间</td>
+                        <td>状态</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>标题</td>
+                        <td>分类</td>
+                        <td>时间</td>
+                        <td>状态</td>
+                        <td>操作</td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- 分页区域 -->
+            <div id="pageBox"></div>
+        </div>
+    </div>
+
+    <!-- 列表区域模版引擎 -->
+    <script type="'text/html" id="tpl-table">
+         {{each data}}
+         <tr>
+            <td>{{$value.title}}</td>
+            <td>{{$value.cate_name}}</td>
+            <td>{{$value.pub_date|dateFormat}}</td>
+            <td>{{$value.state}}</td>
+            <td>
+        <button type="button" class="layui-btn layui-btn-xs btn-edit" data-id="{{$value.id}}">编辑</button>
+        <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-del" data-id="{{$value.id}}">删除</button>
+            </td>
+      </tr>
+     {{/each}}
+    </script>
+    <!-- 分类可选项 模板结果 -->
+    <script type="text/html" id="tpl-cate">
+        <option value="">所有分类</option>
+        {{each data}}
+        <option value="{{$value.id}}">{{$value.name}}</option>
+        {{/each}}
+    </script>
+
+    <!-- 编辑区域模板引擎 -->
+
+    <script src="/assets/lib/jquery.js"></script>
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <script src="/assets/js/baseAPI.js"></script>
+    <script src="/assets/lib/template-web.js"></script>
+    <script src="/assets/js/article/art_list.js"></script>
+</body>
+
+</html>
